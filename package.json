@@ -1,0 +1,23 @@
+{
+  "name": "API-Shoppingify",
+  "version": "1.0.0",
+  "description": "API para app shoppingify, lista de compras.",
+  "main": "src/index.js",
+  "author": "fmchtt",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "ts-node-dev ./src --transpile-only --ignore-watch node_modules --respawn"
+  },
+  "dependencies": {
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "sequelize": "^6.5.0",
+    "typescript": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/config": "^0.0.38",
+    "@types/express": "^4.17.11",
+    "ts-node-dev": "^1.1.1"
+  }
+}
