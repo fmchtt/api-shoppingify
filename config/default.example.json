@@ -1,0 +1,12 @@
+{
+    "server": {
+        "port": 3000,
+        "host": "0.0.0.0"
+    },
+    "database": {
+        "name": "shoppingfy",
+        "host": "localhost",
+        "username": "root",
+        "password": "1234"
+    }
+}
