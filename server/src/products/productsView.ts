@@ -20,7 +20,6 @@ interface IProduct {
 
 export default {
   render(product: IProduct) {
-    console.log(product.Images)
     return {
       ProductId: product.ProductId,
       Name: product.Name,

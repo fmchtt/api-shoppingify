@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../database";
+import sequelize from "../../database";
 import Images from "../images/imagesModel";
 import Categories from "../categories/categoriesModel";
 
@@ -28,10 +28,16 @@ const Products = sequelize.define(
   }
 );
 
-Products.hasMany(Images, { foreignKey: "ProductId" });
+Products.hasMany(Images, {
+  foreignKey: "ProductId",
+  onDelete: "CASCADE",
+  constraints: false,
+});
 Products.hasMany(Categories, {
   sourceKey: "CategoryId",
   foreignKey: "CategoryId",
+  onDelete: "NO ACTION",
+  constraints: false,
 });
 
 export default Products;

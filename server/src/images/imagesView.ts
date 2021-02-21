@@ -17,7 +17,7 @@ export default {
 
   renderMany(images: IImage[]) {
     return images.map((image) => {
-      return this.render(image);
+      return this.render(image)
     });
   },
 };
