@@ -1,0 +1,24 @@
+{
+   "type": "mariadb",
+   "host": "localhost",
+   "port": 3306,
+   "username": "root",
+   "password": "2747",
+   "database": "shoppingfy",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "server/database/entity/**/*.ts"
+   ],
+   "migrations": [
+      "server/database/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "server/database/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "server/database/entity",
+      "migrationsDir": "server/database/migration",
+      "subscribersDir": "server/database/subscriber"
+   }
+}

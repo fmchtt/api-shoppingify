@@ -8,9 +8,7 @@ import router from "./routes";
 import cors from "cors";
 
 app.use(
-  cors({
-    origin: `${config.get("server.host")}:*`,
-  })
+  cors()
 );
 app.use(express.json());
 app.use(router);

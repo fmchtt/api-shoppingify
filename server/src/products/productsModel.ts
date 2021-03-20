@@ -1,43 +1,34 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../../database";
-import Images from "../images/imagesModel";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+  OneToMany,
+} from "typeorm";
 import Categories from "../categories/categoriesModel";
+import Images from "../images/imagesModel";
 
-const Products = sequelize.define(
-  "Products",
-  {
-    ProductId: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    Name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    Description: {
-      type: DataTypes.STRING,
-    },
-    CategoryId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-  },
-  {
-    timestamps: false,
-  }
-);
+@Entity("Products")
+export default class Products {
+  @PrimaryGeneratedColumn("increment")
+  Id: number;
 
-Products.hasMany(Images, {
-  foreignKey: "ProductId",
-  onDelete: "CASCADE",
-  constraints: false,
-});
-Products.hasMany(Categories, {
-  sourceKey: "CategoryId",
-  foreignKey: "CategoryId",
-  onDelete: "NO ACTION",
-  constraints: false,
-});
+  @Column()
+  Name: string;
 
-export default Products;
+  @Column()
+  Description: string;
+
+  @ManyToOne(() => Categories, (Categories) => Categories.product, {
+    cascade: ["insert", "update"],
+  })
+  @JoinColumn({ name: "product_id" })
+  category: Categories;
+
+  @OneToMany(() => Images, (Images) => Images.product, {
+    cascade: ["insert", "update"],
+  })
+  @JoinColumn({ name: "Product_id" })
+  Images: Images[];
+}

@@ -1,0 +1,12 @@
+{
+    "server": {
+        "port": 3333,
+        "host": "192.168.0.63"
+    },
+    "database": {
+        "name": "shoppingfy",
+        "host": "localhost",
+        "username": "root",
+        "password": "2747"
+    }
+}

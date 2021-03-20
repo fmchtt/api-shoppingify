@@ -1,20 +1,22 @@
-import { DataTypes } from 'sequelize';
-import sequelize from '../../database'
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+} from "typeorm";
 
-const Images = sequelize.define("Images", {
-  ImagesID: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  Path: {
-    type: DataTypes.STRING
-  },
-  ProductId: {
-    type: DataTypes.INTEGER
-  }
-}, {
-  timestamps: false
-})
+import Products from "../products/productsModel";
 
-export default Images;
+@Entity("Images")
+export default class Images {
+  @PrimaryGeneratedColumn("increment")
+  Id: number;
+
+  @Column()
+  Path: string;
+
+  @ManyToOne(() => Products, (Products) => Products.Images)
+  @JoinColumn({ name: "Product_id" })
+  product: Products;
+}

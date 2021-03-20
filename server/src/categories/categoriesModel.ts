@@ -1,22 +1,21 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../../database";
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  JoinColumn,
+} from "typeorm";
+import Products from "../products/productsModel";
 
-const Categories = sequelize.define(
-  "Categories",
-  {
-    CategoryId: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    Name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  },
-  {
-    timestamps: false,
-  }
-);
+@Entity("Categories")
+export default class Categories {
+  @PrimaryGeneratedColumn("increment")
+  Id: number;
 
-export default Categories;
+  @Column()
+  Name: string;
+
+  @OneToMany(() => Products, (Products) => Products.category)
+  @JoinColumn({ name: "product_id" })
+  product: Products;
+}

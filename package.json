@@ -1,28 +1,35 @@
 {
-  "name": "API-Shoppingify",
-  "version": "1.0.0",
-  "description": "API para app shoppingify, lista de compras.",
-  "main": "src/index.js",
-  "author": "fmchtt",
-  "license": "MIT",
-  "private": false,
-  "scripts": {
-    "start": "ts-node-dev ./server --transpile-only --ignore-watch node_modules --respawn"
-  },
-  "dependencies": {
-    "config": "^3.3.3",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mariadb": "^2.5.3",
-    "multer": "^1.4.2",
-    "sequelize": "^6.5.0",
-    "typescript": "^4.1.5"
-  },
-  "devDependencies": {
-    "@types/config": "^0.0.38",
-    "@types/cors": "^2.8.10",
-    "@types/express": "^4.17.11",
-    "@types/multer": "^1.4.5",
-    "ts-node-dev": "^1.1.1"
-  }
+   "name": "API-Shoppingify",
+   "version": "1.0.0",
+   "description": "API para app shoppingify, lista de compras.",
+   "main": "src/index.js",
+   "author": "fmchtt",
+   "license": "MIT",
+   "private": false,
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+   },
+   "dependencies": {
+      "config": "^3.3.3",
+      "cors": "^2.8.5",
+      "express": "^4.17.1",
+      "mariadb": "^2.5.3",
+      "multer": "^1.4.2",
+      "mysql": "^2.18.1",
+      "reflect-metadata": "^0.1.10",
+      "sequelize": "^6.5.0",
+      "typeorm": "0.2.31",
+      "typescript": "^4.1.5"
+   },
+   "devDependencies": {
+      "@types/config": "^0.0.38",
+      "@types/cors": "^2.8.10",
+      "@types/express": "^4.17.11",
+      "@types/multer": "^1.4.5",
+      "@types/node": "^8.0.29",
+      "ts-node": "3.3.0",
+      "ts-node-dev": "^1.1.1",
+      "typescript": "3.3.3333"
+   }
 }
